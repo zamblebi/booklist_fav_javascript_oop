@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Booklist_Fav</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <div class="container">
+            <h1> <i class="fas fa-book-open"></i> Booklist Fav</h1>
+            <form action="">
+                <div class="form-group">
+                    <label for="name_book">Books Name</label>
+                    <input type="text" name="name_of_book" id="name_book" class="form-control" placeholder="Chair de poule">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author Name</label>
+                    <input type="text" id="author" name="author" class="form-control" placeholder="Jhon Doe">
+                </div>
+                <div class="form-group">
+                    <label for="details">Details of book</label>
+                    <textarea name="details" id="details" cols="30" rows="10" class="form-control" placeholder="bla bla bla"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Add Fav</button>
+                </div>
+            </form>
+
+
+            <!-- list of books  -->
+
+            <h2>List of books</h2>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Books name</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
