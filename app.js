@@ -4,7 +4,9 @@ let author = document.querySelector('#author')
 let details = document.querySelector('#details')
 
 
-
+btnAdd.addEventListener("click", (e)=> {
+    e.preventDefault();
+})
 
 
 function Book(name, author, details){
