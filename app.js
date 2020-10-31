@@ -4,9 +4,6 @@ let author = document.querySelector('#author')
 let details = document.querySelector('#details')
 
 
-btnAdd.addEventListener("click", (e)=> {
-    e.preventDefault();
-})
 
 
 function Book(name, author, details){
@@ -17,6 +14,19 @@ function Book(name, author, details){
         return `Name of book: ${this.name} author : ${this.author} and details is : ${this.details}`
     }
 }
+
+
+btnAdd.addEventListener("click", (e)=> {
+    e.preventDefault();
+
+    let newBookAdded = new Book(name_book.value, author.value, details.value);
+    name_book.value = ''
+    author.value = ''
+    details.value = ''
+    console.log(newBookAdded.all_info()) 
+})
+
+
 
 
 let chair_de_poule = new Book('Chair de poule', 'Allan stresfol', 'Lorem ipsum dolor sit amet consectetur.' );
