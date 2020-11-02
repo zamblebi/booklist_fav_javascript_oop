@@ -15,18 +15,34 @@ function Book(name, author, details){
     }
 }
 
+var allBookFav = [];
+
 
 btnAdd.addEventListener("click", (e)=> {
     e.preventDefault();
 
     let newBookAdded = new Book(name_book.value, author.value, details.value);
+    // create new books with class instance
+    
+    if(name_book.value == '' && author.value == '' && details.value == ''){
+        console.error('value empty')
+    }else{
+        let valueBookAdded = {name: newBookAdded.name, author: newBookAdded.author, details: newBookAdded.details};
+        allBookFav.push(valueBookAdded);
+        localStorage.setItem('books', JSON.stringify(allBookFav))
+
+    }
+
+
+    // if(!allBookFav.length == 0){
+    // }else{
+    //     console.error('nope')
+    // }
+    
+    // Clear input value 
     name_book.value = ''
     author.value = ''
     details.value = ''
+
     console.log(newBookAdded.all_info()) 
 })
-
-
-
-
-let chair_de_poule = new Book('Chair de poule', 'Allan stresfol', 'Lorem ipsum dolor sit amet consectetur.' );
