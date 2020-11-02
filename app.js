@@ -15,12 +15,12 @@ function Book(name, author, details){
     }
 }
 
-var allBookFav = [];
+let allBookFav = [];
 
 
 btnAdd.addEventListener("click", (e)=> {
-    e.preventDefault();
-
+    // e.preventDefault();
+    
     let newBookAdded = new Book(name_book.value, author.value, details.value);
     // create new books with class instance
     
@@ -28,23 +28,30 @@ btnAdd.addEventListener("click", (e)=> {
         console.error('value empty')
     }else{
         let valueBookAdded = {name: newBookAdded.name, author: newBookAdded.author, details: newBookAdded.details};
-        allBookFav.push(valueBookAdded);
-        localStorage.setItem('books', JSON.stringify(allBookFav))
+        
+        if(!localStorage.getItem('books')){
 
+            if(allBookFav.length == 0){
+                allBookFav.push(valueBookAdded);
+                localStorage.setItem('books', JSON.stringify(allBookFav))
+        }}else{
+            allBookFav = JSON.parse(localStorage.getItem('books'));
+            allBookFav.push(valueBookAdded);
+            localStorage.setItem('books', JSON.stringify(allBookFav))
+        }
+        
     }
-
-    name_book.value = ''
-    author.value = ''
-    details.value = ''
-
-    console.log(newBookAdded.all_info()) 
-})
+       
+        name_book.value = ''
+        author.value = ''
+        details.value = ''
+});
 
 JSON.parse(localStorage.getItem('books')).map((book,i) => {
     tBody.innerHTML += `
     <tr>
-        <td>
-        ${book.name}
+    <td>
+    ${book.name}
         </td>
         <td>
         ${book.author}
@@ -52,7 +59,6 @@ JSON.parse(localStorage.getItem('books')).map((book,i) => {
         <td>
         ${book.details}
         </td>
-    </tr>
-    `
-})
-console.log(tBody)
+        </tr>
+        `
+    })
