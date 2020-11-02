@@ -61,4 +61,4 @@ JSON.parse(localStorage.getItem('books')).map((book,i) => {
         </td>
         </tr>
         `
-    })
+})
