@@ -6,11 +6,13 @@ let details = document.querySelector('#details')
 let tBody = document.querySelector('tbody')
 
 
-function Book(name, author, details){
-    this.name = name;
-    this.author = author;
-    this.details = details;
-    this.all_info = () => {
+class Book{
+    constructor(name, author, details){
+        this.name = name;
+        this.author = author;
+        this.details = details;
+    }
+    all_info () {
         return `Name of book: ${this.name} author : ${this.author} and details is : ${this.details}`
     }
 }
@@ -50,14 +52,14 @@ btnAdd.addEventListener("click", (e)=> {
 JSON.parse(localStorage.getItem('books')).map((book,i) => {
     tBody.innerHTML += `
     <tr>
-    <td>
-    ${book.name}
+        <td>
+            ${book.name}
         </td>
         <td>
-        ${book.author}
+            ${book.author}
         </td>
         <td>
-        ${book.details}
+            ${book.details}
         </td>
         </tr>
         `
