@@ -3,7 +3,7 @@ let name_book = document.querySelector('#name_book')
 let author = document.querySelector('#author')
 let details = document.querySelector('#details')
 
-
+let tBody = document.querySelector('tbody')
 
 
 function Book(name, author, details){
@@ -33,16 +33,26 @@ btnAdd.addEventListener("click", (e)=> {
 
     }
 
-
-    // if(!allBookFav.length == 0){
-    // }else{
-    //     console.error('nope')
-    // }
-    
-    // Clear input value 
     name_book.value = ''
     author.value = ''
     details.value = ''
 
     console.log(newBookAdded.all_info()) 
 })
+
+JSON.parse(localStorage.getItem('books')).map((book,i) => {
+    tBody.innerHTML += `
+    <tr>
+        <td>
+        ${book.name}
+        </td>
+        <td>
+        ${book.author}
+        </td>
+        <td>
+        ${book.details}
+        </td>
+    </tr>
+    `
+})
+console.log(tBody)
